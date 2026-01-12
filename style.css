@@ -1,222 +1,153 @@
-/* style.css — PART 3 STRUCTURAL DIFFERENCE: CASE WALL */
+/* style.css — BEGINNER (DAY 1) VERSION */
+/* Keep HTML the same. Simple, readable, minimal rules. */
 
-:root{
-    --bg:#0a0a0a;
-    --cork:#7b5332;
-    --paper:#f2ead6;
-    --ink:#141414;
-    --muted: rgba(20,20,20,0.65);
-    --pin:#c61f1f;
-    --string:#d2b48c;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #111;
+  color: #eee;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* links */
+a {
+  color: #9fd3ff;
+}
+
+/* header */
+header {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+  border: 1px solid #333;
+  background: #1b1b1b;
+}
+
+header p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: 32px;
+}
+
+/* nav */
+nav {
+  max-width: 1100px;
+  margin: 16px auto;
+  padding: 12px 16px;
+  border: 1px solid #333;
+  background: #1b1b1b;
+}
+
+nav ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+nav li {
+  margin: 6px 0;
+}
+
+/* main container */
+main {
+
+
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* sections */
+section {
+  margin: 16px 0;
+  padding: 16px;
+  border: 1px solid #333;
+  background: #1b1b1b;
+}
+
+section h2 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* THE BOARD */
+#board > div {
+  /* super simple grid */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+#board article {
+  background: #f2ead6;
+  color: #111;
+  padding: 12px;
+  border: 1px solid #cfc6b4;
+}
+
+#board h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+
+#board img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid #bbb;
+  margin: 8px 0;
+}
+
+/* lists */
+ul, ol {
+  padding-left: 20px;
+}
+
+li {
+  margin: 6px 0;
+}
+
+/* timeline */
+#timeline ol {
+  margin: 0;
+}
+
+/* verdict details */
+details {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #333;
+  background: #121212;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* footer */
+footer {
+  max-width: 1100px;
+  margin: 16px auto 0;
+  padding: 10px 0;
+  font-size: 12px;
+  color: #aaa;
+  border-top: 1px solid #333;
+}
+
+/* small responsive upgrade (still beginner-friendly) */
+@media (min-width: 800px) {
+  #board > div {
+    grid-template-columns: 1fr 1fr;
   }
-  
-  *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  
-  body{
-    margin:0;
-    background:
-      radial-gradient(900px 500px at 50% 0%, rgba(255,255,255,0.08), transparent 60%),
-      var(--bg);
-    color: var(--paper);
-    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    padding: 24px 14px 60px;
-  }
-  
-  /* Header looks like a report label */
-  header{
-    width:min(1100px, 100%);
-    margin: 0 auto 18px;
-    padding: 18px 18px;
-    border: 1px solid rgba(255,255,255,0.18);
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(6px);
-  }
-  
-  header p{
-    margin: 6px 0 0;
-    color: rgba(255,255,255,0.8);
-    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 12px;
-  }
-  
-  h1{
-    margin: 10px 0 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 800;
-  }
-  
-  /* Nav is simple + different from your previous topbar */
-  nav{
-    width:min(1100px, 100%);
-    margin: 0 auto 18px;
-    padding: 12px 18px;
-    border: 1px dashed rgba(255,255,255,0.22);
-    background: rgba(0,0,0,0.25);
-  }
-  
-  nav ul{
-    margin: 8px 0 0;
-    padding-left: 18px;
-  }
-  
-  nav a{
-    color: #fff;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  
-  main{
-    width:min(1100px, 100%);
-    margin: 0 auto;
-  }
-  
-  /* ====== BOARD ====== */
-  #board{
-    background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
-                repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 18px),
-                var(--cork);
-    border-radius: 16px;
-    padding: 18px;
-    border: 1px solid rgba(255,255,255,0.12);
-    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-  }
-  
-  #board h2{
-    margin: 0 0 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 14px;
-    opacity: 0.9;
-  }
-  
-  /* Cards (structural difference) */
-  #board > div{
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 14px;
-  }
-  
-  #board article{
-    background: var(--paper);
-    color: var(--ink);
-    border-radius: 14px;
-    padding: 14px 14px 12px;
-    box-shadow: 10px 12px 0 rgba(0,0,0,0.35);
-    position: relative;
-    border: 1px solid rgba(0,0,0,0.18);
-  }
-  
-  /* pushpin */
-  #board article::before{
-    content:"";
-    position:absolute;
-    top: -8px;
-    left: 16px;
-    width: 14px;
-    height: 14px;
-    background: var(--pin);
-    border-radius: 50%;
-    box-shadow: 0 6px 0 rgba(0,0,0,0.25);
-  }
-  
-  /* card headings */
-  #board h3{
-    margin: 0 0 10px;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-  }
-  
-  #board p, #board li{
-    font-size: 13px;
-    line-height: 1.5;
-  }
-  
-  #board ul{
-    margin: 8px 0 0;
-    padding-left: 18px;
-  }
-  
-  #board img{
-    width: 100%;
-    height: auto;
-    display:block;
-    border-radius: 10px;
-    border: 1px solid rgba(0,0,0,0.2);
-    background: #fff;
-    margin-bottom: 10px;
-  }
-  
-  /* Layout sizes: choose spans to create “wall collage” */
-  #board article:nth-child(1){ grid-column: span 5; transform: rotate(-0.6deg); }
-  #board article:nth-child(2){ grid-column: span 4; transform: rotate(0.8deg); }
-  #board article:nth-child(3){ grid-column: span 3; transform: rotate(-0.2deg); }
-  
-  #board article:nth-child(4){ grid-column: span 4; transform: rotate(-0.5deg); }
-  #board article:nth-child(5){ grid-column: span 4; transform: rotate(0.4deg); }
-  #board article:nth-child(6){ grid-column: span 4; transform: rotate(-0.3deg); }
-  
-  #board article:nth-child(7){ grid-column: span 6; transform: rotate(0.2deg); }
-  #board article:nth-child(8){ grid-column: span 6; transform: rotate(-0.2deg); }
-  
-  /* ====== OTHER SECTIONS (clean, not cards) ====== */
-  section{
-    margin-top: 20px;
-    padding: 16px 18px;
-    border: 1px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.05);
-  }
-  
-  section h2{
-    margin: 0 0 12px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 14px;
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-  }
-  
-  ol{
-    padding-left: 20px;
-  }
-  
-  a{
-    color:#fff;
-  }
-  
-  details{
-    margin-top: 10px;
-    padding: 12px 12px;
-    background: rgba(0,0,0,0.28);
-    border: 1px dashed rgba(255,255,255,0.22);
-  }
-  
-  summary{
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 12px;
-  }
-  
-  footer{
-    width:min(1100px, 100%);
-    margin: 18px auto 0;
-    opacity: 0.75;
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 12px;
-  }
-  
-  /* Mobile */
-  @media (max-width: 760px){
-    #board > div{ grid-template-columns: 1fr; }
-    #board article{ grid-column: span 12; transform:none !important; }
-  }
-  
+}
