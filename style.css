@@ -18,7 +18,7 @@ a{
   color: #9fd3ff;
 }
 
-/* top blocks */
+
 .header,
 .nav,
 .page,
@@ -63,12 +63,12 @@ a{
   margin: 6px 0;
 }
 
-/* page container */
+
 .page{
   margin: 0 auto;
 }
 
-/* each big block */
+
 .block{
   margin: 16px 0;
   padding: 16px;
@@ -83,14 +83,13 @@ a{
   letter-spacing: 1px;
 }
 
-/* ===== board layout (same idea as before) ===== */
+
 #board .cards{
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
 }
 
-/* board cards */
 #board .card{
   background: #f2ead6;
   color: #111;
@@ -99,7 +98,7 @@ a{
   
 }
 
-/* card titles */
+
 #board .card h3{
   margin: 0 0 8px 0;
   font-size: 16px;
@@ -111,7 +110,7 @@ a{
   
 }
 
-/* images inside board cards */
+
 #board .card img{
   width: 60%;
   height: auto;
@@ -121,7 +120,7 @@ a{
   margin: 0 auto;
 }
 
-/* lists */
+
 ul, ol{
   padding-left: 20px;
 }
@@ -131,7 +130,7 @@ li{
   
 }
 
-/* sources */
+
 #sources .source{
   border: 1px solid #333;
   background: #121212;
@@ -143,7 +142,7 @@ li{
   margin-bottom: 6px;
 }
 
-/* verdict */
+
 details{
   margin-top: 12px;
   padding: 12px;
@@ -156,7 +155,7 @@ summary{
   font-weight: bold;
 }
 
-/* footer */
+
 .footer{
   margin-top: 16px;
   padding-top: 10px;
